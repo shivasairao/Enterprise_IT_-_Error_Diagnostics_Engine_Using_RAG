@@ -1,0 +1,17 @@
+[
+  {
+    "error_code": "CUDA_OUT_OF_MEMORY",
+    "symptom": "The model training job crashes immediately after initialization. Terminal shows a fatal process exit.",
+    "resolution": "1. Reduce batch size to 16 in the training config.\n2. Enable gradient checkpointing.\n3. Verify no zombie Python processes are locking VRAM using nvidia-smi."
+  },
+  {
+    "error_code": "HTTP_504_GATEWAY_TIMEOUT",
+    "symptom": "The frontend analytics dashboard spins indefinitely and fails to load user metrics.",
+    "resolution": "The downstream analytics microservice is dropping the connection. Increase the ingress timeout threshold to 60s in the deployment.yaml, and add composite indexes to the user_events database table."
+  },
+  {
+    "error_code": "AUTH_TOKEN_EXPIRED_0x99",
+    "symptom": "Users are randomly kicked back to the login screen while actively navigating the platform.",
+    "resolution": "The refresh token rotation lambda is out of sync. Clear the Redis cache layer, force browser cookie expiration, and restart the authentication pod."
+  }
+]
