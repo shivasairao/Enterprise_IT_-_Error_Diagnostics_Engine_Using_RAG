@@ -1,0 +1,6 @@
+.streamlit/secrets.toml
+.env
+faiss_index/
+myenv/
+.venv/
+__pycache__/
